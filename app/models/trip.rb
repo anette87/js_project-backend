@@ -2,8 +2,8 @@ class Trip < ApplicationRecord
     has_many :days
     validates :client_name, :location, :starting_day, :last_day, presence: true
     validate :dates_sanity_check
-    validates :email, uniqueness: { scope: :client_name, message: "and name combination should be unique" }, if: :email_present?
-
+    validates :email, uniqueness: true
+    
 
     before_create :save_days, 
 
