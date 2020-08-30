@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_213406) do
 
   create_table "trips", force: :cascade do |t|
     t.string "client_name"
+    t.string "email"
     t.string "location"
     t.date "starting_day"
     t.date "last_day"

@@ -1,4 +1,5 @@
 class PlanSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :day_id, :location, :description
+  belongs_to :day
+  attributes :day_id, :location, :description, :id
 end

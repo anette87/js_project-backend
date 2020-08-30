@@ -1,10 +1,15 @@
 class PlansController < ApplicationController
 
     def create
-        plan = Plan.create(plan_params)
-        render json: PlanSerializer.new(plan)
+        plan = Plan.new(plan_params)
+        if plan.save
+            render json: PlanSerializer.new(plan)
+        else
+            render json: plan.errors, status: :unprocessable_entity
+        end
+
     end 
-    
+   
     def update
         plan = Plan.find(params[:id])
         plan.update(plan_params)
