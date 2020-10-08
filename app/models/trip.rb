@@ -4,7 +4,6 @@ class Trip < ApplicationRecord
     validate :dates_sanity_check
     validates :email, uniqueness: true
     
-
     before_create :save_days, 
 
     def save_days
@@ -14,7 +13,6 @@ class Trip < ApplicationRecord
         puts total_days
 
         total_days.times.each do |n|
-            puts "in loop n: #{n}"
             day = self.days.build(date: n+1)
         end
     end
